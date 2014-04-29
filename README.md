@@ -1,5 +1,5 @@
 # Laravel example tutorial
-This is a tutorial on how to run a laravel application that uses auth0 for authentication, we have it in two flavor, as a local application using apache, or in the cloud using heroku
+This is a tutorial on how to run an example laravel application that uses auth0 for authentication, we have it in two flavor, as a local application using apache, or in the cloud using heroku
 
 ## Clone the example
 
@@ -19,10 +19,10 @@ If you want to use `mysql` for the example, create a `.env.php` file in the app 
 
     <?php
     return array(
-            'DB_HOST' => 'localhost',
-            'DB_NAME' => 'laravel-app',
-            'DB_USER' => 'mysqluser',
-            'DB_PASS' => 'secret'
+        'DB_HOST' => 'localhost',
+        'DB_NAME' => 'laravel-app',
+        'DB_USER' => 'mysqluser',
+        'DB_PASS' => 'secret'
     );
 
 if you want to use another driver, modify `app/config/database.php` directly.
@@ -65,10 +65,22 @@ Then apply the migrations by running the following command
 
     heroku run php /app/artisan migrate
 
-## Configure Auth0
+### Configure Auth0
 
+Add auth0 as an addon
 
-Note:
+    heroku addons:add auth0 --type=php --subdomain=<your-domain>
+
+Open your auth0 dashboard (you can use `heroku addons:open auth0`) and configure the callback of your application to be
+
+    http://<domain>/auth0/callback
+
+Configure heroku to use the same callback
+
+    heroku config:set AUTH0_CALLBACK_URL="http://<domain>/auth0/callback"
+
+## Things to note:
 * The Procfile tells heroku how to invoke an apache instance that is compatible with laravel
-* The `bootstrap/start.php` has a function that detects whether the enviroment is local or a heroku
+* The `bootstrap/start.php` has a function that detects whether the enviroment is local or heroku
+
 
