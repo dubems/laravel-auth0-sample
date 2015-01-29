@@ -1,0 +1,10 @@
+{
+  "name": "Laravel with Auth0",
+  "type": "sample",
+  "tags": [
+    "laravel",
+    "php",
+    "apache",
+    "heroku"
+  ]
+}
