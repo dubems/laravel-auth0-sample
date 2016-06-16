@@ -9,7 +9,7 @@
     <img src="{{ Auth::user()->picture }}">
 @else
     <button id="login-button">Login</button>
-    <script src="http://cdn.auth0.com/js/lock-9.0.min.js"></script>
+    <script src="http://cdn.auth0.com/js/lock-9.2.min.js"></script>
     <script type="text/javascript">
         var lock = new Auth0Lock('{{ env("AUTH0_CLIENT_ID") }}', '{{ env("AUTH0_DOMAIN") }}');
 

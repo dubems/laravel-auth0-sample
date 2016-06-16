@@ -1,9 +1,12 @@
 # Laravel example tutorial
+
 This is a tutorial on how to run an example laravel application that uses auth0 for authentication, we have it in two flavor, as a local application using apache, or in the cloud using heroku
 
 ## Clone the example
 
-    git clone https://github.com/auth0/laravel-auth0-sample.git
+```
+git clone https://github.com/auth0/laravel-auth0-sample.git
+```
 
 ## Local apache
 
@@ -11,31 +14,35 @@ This is a tutorial on how to run an example laravel application that uses auth0 
 
 Download composer and execute
 
-    php composer.phar install
+```
+php composer.phar install
+```
 
 ### Configure the database
 
-If you want to use `mysql` for the example, create a `.env.php` file in the app root with your private information
+If you want to use `mysql` for the example, change settings in `.env` file. The default settings are:
 
-    <?php
-    return array(
-        'DB_HOST' => 'localhost',
-        'DB_NAME' => 'laravel-app',
-        'DB_USER' => 'mysqluser',
-        'DB_PASS' => 'secret'
-    );
+```
+DB_HOST=localhost
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
 
-if you want to use another driver, modify `app/config/database.php` directly.
+if you want to use another driver, modify `config/database.php` directly.
 
 After the database is configured, apply the migrations
-
-    php artisan migrate
+```
+php artisan migrate
+```
 
 ### Configure Auth0
 
-1. Edit the file `app/config/packages/auth0/login/config.php` with your auth0 domain, app id and secret.
+1. Edit the file `.env` with your auth0 domain, app id and secret.
 
 2. Go to your auth0 dashboard and add `http://<ip-to-apache>/auth0/callback` to your authorized callbacks
+
+3. Run `php artisan serve` and browse to [http://localhost:8000](http://localhost:8000)
 
 
 
