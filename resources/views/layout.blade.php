@@ -9,12 +9,12 @@
     <img src="{{ Auth::user()->picture }}">
 @else
     <button id="login-button">Login</button>
-    <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script type="text/javascript">
         var lock = new Auth0Lock('{{ env("AUTH0_CLIENT_ID") }}', '{{ env("AUTH0_DOMAIN") }}', {
             auth: {
                 redirectUrl: '{{ env ("AUTH0_CALLBACK_URL" )}}',
-                response_type: 'code'
+                responseType: 'code'
             }
         });
 
