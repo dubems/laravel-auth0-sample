@@ -56,7 +56,7 @@ Login to heroku
 
 Next, we need to create an application from the local git repository. In your path to the repo execute
 
-    heroku create --buildpack https://github.com/heroku/heroku-buildpack-php#beta
+    heroku buildpacks:set heroku/php
 
 Now you have a remote called heroku and you can upload to it by executing
 
